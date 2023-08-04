@@ -65,5 +65,5 @@ module.exports = {
   getAllActivas,
   create,
   update,
-  destroy,
+  destroy
 };
