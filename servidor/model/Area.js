@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../model/db/DataBase");
 
-class Categoria extends Model {}
+class Area extends Model {}
 
-Categoria.init(
+Area.init(
   {
     id: {
       autoIncrement: true,
@@ -22,22 +22,13 @@ Categoria.init(
       allowNull: false,
       defaultValue: false,
     },
-    areaId:{
-      field: "area_id",
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Area",
-        key: "id",
-      },    
-    }
   },
   {
     sequelize,
-    modelName: "Categoria",
-    tableName: "categoria",
+    modelName: "Area",
+    tableName: "area",
     timestamps: false,
   }
 );
 
-module.exports = Categoria;
+module.exports = Area;

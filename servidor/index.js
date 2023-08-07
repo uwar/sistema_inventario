@@ -3,6 +3,7 @@ const express = require("express");
 const unidadRouter = require("./router/UnidadRouter");
 const categoriaRouter = require("./router/CategoriaRouter");
 const productoRouter = require("./router/ProductoRouter");
+const areaRouter = require("./router/AreaRouter");
 /*const proveedorRouter = require("./router/ProveedorRouter");
 const representanteRouter = require("./router/RepresentanteRouter");*/
 const app = express();
@@ -18,6 +19,7 @@ app.get("/", (req, resp) => resp.send("application is up and running"));
 app.use("/api", unidadRouter.routes);
 app.use("/api", categoriaRouter.routes);
 app.use("/api", productoRouter.routes);
+app.use("/api", areaRouter.routes);
 //app.use("/api", proveedorRouter.routes);
 //app.use("/api", representanteRouter.routes);
 //app.use("/api", tipoEvaluacionRouter.routes);
