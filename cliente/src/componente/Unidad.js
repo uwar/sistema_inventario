@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect,useState,useRef,Component } from "react";
 import { classNames } from 'primereact/utils';
 import { Fieldset } from 'primereact/fieldset';
 import { Button } from 'primereact/button';
@@ -24,7 +24,7 @@ export default function Unidad() {
     const [registros,setRegistros] = useState([]);
     const [registroDialog,setRegistroDialog] = useState(false);
     const [deleteRegistroDialog,setDeleteRegistroDialog] = useState(false);
-    const [registro,setRegistro] = useState(this.emptyRegistro);
+    const [registro,setRegistro] = useState(emptyRegistro);
     const [submitted,setSubmitted] = useState(false);
     const toast = useRef(null);
 
@@ -41,7 +41,7 @@ export default function Unidad() {
         onUpdate();
     }, []);
     const hideDeleteRegistroDialog = ()=> {
-        setDeleteProductDialog(false);
+        setDeleteRegistroDialog(false);
     }
 
     const deleteRegistroDialogFooter = ()=>{
@@ -146,7 +146,7 @@ export default function Unidad() {
     }
 
     const openNew =()=> {
-        setRegistro(this.emptyRegistro);
+        setRegistro(emptyRegistro);
         setSubmitted(false);
         setRegistroDialog(true);
     }
@@ -203,7 +203,7 @@ export default function Unidad() {
             <Dialog visible={registroDialog} style={{ width: '450px' }} header={"DETALLE "+nombre} modal className="p-fluid" footer={registroDialogFooter} onHide={hideDialog}>
             <div className="field">
                 <label htmlFor="descripcion">Descripcion</label>
-                    <InputText id="descripcion" value={registro.descripcion} onChange={(e) => this.onInputChange(e, 'descripcion')} required autoFocus className={classNames({ 'p-invalid': submitted && !registro.descripcion })} />
+                    <InputText id="descripcion" value={registro.descripcion} onChange={(e) => onInputChange(e, 'descripcion')} required autoFocus className={classNames({ 'p-invalid': submitted && !registro.descripcion })} />
                     {submitted && !registro.descripcion && <small className="p-error">Descripcion es requerida.</small>}
                 </div>
                 <div className="field-checkbox">
